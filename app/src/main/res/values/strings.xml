@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">epsi</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="hello_world">Hello World</string>
+    <string name="image_description" />
+    <string name="pokemon">Pokemon</string>
+    <string name="pokemon_name">Pokemon Name</string>
+    <string name="height_0">Height: 0</string>
+    <string name="weight_0">Weight: 0</string>
+    <string name="pokedex_description">Pokedex Description</string>
+    <string name="types_none">Types: none</string>
+    <string name="back">Back</string>
+    <string name="log_out">Log-out</string>
+</resources>

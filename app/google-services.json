@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "687341870022",
+    "project_id": "epsi-6a654",
+    "storage_bucket": "epsi-6a654.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687341870022:android:1897b3fb958070c6a5f0c7",
+        "android_client_info": {
+          "package_name": "com.example.epsi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVwhQv-rlUQrrkdZ3KGy0jj3VGMaPJb-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

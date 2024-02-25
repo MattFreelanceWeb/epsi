@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="imageViewPokemon" type="id" />
+    <item name="textViewHeight" type="id" />
+    <item name="textViewWeight" type="id" />
+    <item name="textViewDescription" type="id" />
+    <item name="logoutButton" type="id" />
+    <item name="btn_logout" type="id" />
+</resources>

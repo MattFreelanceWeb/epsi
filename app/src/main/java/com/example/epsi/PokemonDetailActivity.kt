@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.epsi.databinding.ActivityPokemonDetailBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -194,10 +195,12 @@ class PokemonDetailActivity : AppCompatActivity() {
                 .get()
                 .addOnSuccessListener { documents ->
                     if (!documents.isEmpty) {
-                        buttonCapture.text = "Libérer"
+                        buttonCapture.text = "Release"
+                        buttonCapture.setBackgroundColor(ContextCompat.getColor(this, android.R.color.holo_red_dark))
                         isPokemonCaptured = true
                     } else {
-                        buttonCapture.text = "Capturer"
+                        buttonCapture.text = "Catch"
+                        buttonCapture.setBackgroundColor(ContextCompat.getColor(this, android.R.color.holo_green_dark))
                         isPokemonCaptured = false
                     }
                 }

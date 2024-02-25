@@ -1,11 +1,24 @@
 <!-- item_pokemon.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="16dp"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:background="#FFFFFF"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:id="@+id/textViewNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingEnd="8dp"
+        android:text="#1"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textViewName"
@@ -14,6 +27,7 @@
         android:layout_weight="1"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="#000000"
         android:paddingEnd="8dp"
         android:text="Pokemon Name" />
 

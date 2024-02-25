@@ -31,6 +31,7 @@ data class PokemonResponse(
 )
 
 data class Pokemon(
+    val number: Int,
     val name: String,
     val url: String,
     var isCaptured: Boolean = false
@@ -79,6 +80,11 @@ class HomePageActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        getPokemonListFromApi()
+    }
+
     private fun logout() {
         // Déconnexion de l'utilisateur
         FirebaseAuth.getInstance().signOut()
@@ -96,7 +102,7 @@ class HomePageActivity : AppCompatActivity() {
             try {
                 val response = service.getPokemonList()
                 if (response.isSuccessful) {
-                    val pokemonList = response.body()?.results?.map { Pokemon(it.name, it.url) }
+                    val pokemonList = response.body()?.results?.map { Pokemon(it.number,it.name, it.url) }
                     fetchPokemonDataFromFirebase(pokemonList ?: emptyList())
                 } else {
                     showToast("Failed to fetch Pokemon list")
@@ -161,7 +167,7 @@ class PokemonAdapter : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() 
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val pokemon = pokemonList[position]
-        holder.bind(pokemon)
+        holder.bind(pokemon, position) // Passer la position à la méthode bind
 
         holder.itemView.setOnClickListener {
             onItemClick?.invoke(pokemon)
@@ -170,7 +176,10 @@ class PokemonAdapter : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() 
 
     override fun getItemCount(): Int = pokemonList.size
 
+
+
     inner class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val textViewNumber: TextView = itemView.findViewById(R.id.textViewNumber)
         private val textViewName: TextView = itemView.findViewById(R.id.textViewName)
         private val imageViewPokeball: ImageView = itemView.findViewById(R.id.imageViewPokeball)
 
@@ -180,8 +189,9 @@ class PokemonAdapter : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() 
             }
         }
 
-        fun bind(pokemon: Pokemon) {
-            textViewName.text = pokemon.name
+        fun bind(pokemon: Pokemon, position: Int) {
+            val pokemonNumber = position + 1 // Ajouter 1 pour obtenir le numéro de position réel
+            textViewName.text = "#$pokemonNumber ${pokemon.name}"
             val imageSize = calculateImageSize(textViewName.textSize)
             val layoutParams = imageViewPokeball.layoutParams
             layoutParams.width = imageSize
@@ -202,4 +212,5 @@ class PokemonAdapter : RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder>() 
             return textSizePixels
         }
     }
+
 }
